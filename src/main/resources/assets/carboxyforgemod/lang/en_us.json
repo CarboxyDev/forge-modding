@@ -1,4 +1,5 @@
 {
     "item.carboxyforgemod.rune_shard": "Rune Shard",
-    "block.carboxyforgemod.rune_ore": "Rune Ore"
+    "block.carboxyforgemod.rune_ore": "Rune Ore",
+    "block.carboxyforgemod.rune_block": "Rune Block"
 }

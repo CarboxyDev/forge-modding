@@ -51,10 +51,12 @@ public class CarboxyForgeMod
     {
         if (event.getTab() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.RUNE_SHARD);
-        }
-            
+        }   
         if (event.getTab() == CreativeModeTabs.NATURAL_BLOCKS) {
             event.accept(ModBlocks.RUNE_ORE);
+        }
+        if (event.getTab() == CreativeModeTabs.OP_BLOCKS) {
+            event.accept(ModBlocks.RUNE_BLOCK);
         }
     }
 

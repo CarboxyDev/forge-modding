@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "carboxyforgemod:block/rune_block"
+    }
+}

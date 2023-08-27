@@ -22,7 +22,9 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, CarboxyForgeMod.MODID);
 
 
-    public static final RegistryObject<Block> RUNE_ORE = registerBlock("rune_ore", () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.METAL).strength(9f).requiresCorrectToolForDrops().lightLevel(value -> 10), UniformInt.of(16, 20)));
+    public static final RegistryObject<Block> RUNE_ORE = registerBlock("rune_ore", () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.METAL).strength(6f).requiresCorrectToolForDrops().lightLevel(value -> 10), UniformInt.of(16, 20)));
+
+    public static final RegistryObject<Block> RUNE_BLOCK = registerBlock("rune_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(6f).requiresCorrectToolForDrops().lightLevel(value -> 12)));
 
 
 
