@@ -15,7 +15,10 @@ public class DiceItem extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        /** Multiplayer server support */
+        /*
+        * This method runs 4 times. Twice on server and twice on client
+        * It runs for the main hand and the off hand which is why it runs twice on each side.
+        */
         if (!level.isClientSide() && hand == InteractionHand.MAIN_HAND) {
             int roll = RandomSource.createNewThreadLocalInstance().nextInt(6) + 1;
             outputServerMessage(player, "You rolled a " + roll + "!");

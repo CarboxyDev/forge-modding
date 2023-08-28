@@ -57,6 +57,7 @@ public class CarboxyForgeMod
         }
         if (event.getTab() == CreativeModeTabs.OP_BLOCKS) {
             event.accept(ModBlocks.RUNE_BLOCK);
+            event.accept(ModBlocks.JUMPPAD);
         }
         if (event.getTab() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(ModItems.DICE);

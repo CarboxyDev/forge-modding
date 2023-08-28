@@ -3,6 +3,7 @@ package me.carboxy.forgemod.block;
 import java.util.function.Supplier;
 
 import me.carboxy.forgemod.CarboxyForgeMod;
+import me.carboxy.forgemod.block.custom.JumppadBlock;
 import me.carboxy.forgemod.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -21,8 +22,8 @@ public class ModBlocks {
 
 
     public static final RegistryObject<Block> RUNE_ORE = registerBlock("rune_ore", () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.METAL).strength(6f).requiresCorrectToolForDrops().lightLevel(value -> 10), UniformInt.of(16, 20)));
-
     public static final RegistryObject<Block> RUNE_BLOCK = registerBlock("rune_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(6f).requiresCorrectToolForDrops().lightLevel(value -> 12)));
+    public static final RegistryObject<Block> JUMPPAD = registerBlock("jumppad", () -> new JumppadBlock(BlockBehaviour.Properties.of(Material.DECORATION).strength(2f)));
 
 
 
