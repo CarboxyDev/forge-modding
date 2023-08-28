@@ -4,6 +4,8 @@ import java.util.List;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.SwordItem;
@@ -20,6 +22,7 @@ public class RunicSword extends SwordItem {
     public RunicSword() {
         super(TIER, ATTACK_DAMAGE, ATTACK_SPEED, PROPS);
     }
+
 
     @Override
     public void appendHoverText(ItemStack itemStack, Level level, List<Component> list, TooltipFlag flag) {

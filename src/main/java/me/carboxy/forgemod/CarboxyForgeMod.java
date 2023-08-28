@@ -3,12 +3,14 @@ package me.carboxy.forgemod;
 import com.mojang.logging.LogUtils;
 
 import me.carboxy.forgemod.block.ModBlocks;
+import me.carboxy.forgemod.command.HelloCommand;
 import me.carboxy.forgemod.item.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -25,7 +27,7 @@ public class CarboxyForgeMod
     // Define mod id in a common place for everything to reference
     public static final String MODID = "carboxyforgemod";
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public CarboxyForgeMod()
     {
@@ -85,6 +87,14 @@ public class CarboxyForgeMod
             // Client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("Your username is {}", Minecraft.getInstance().getUser().getName());
+        }
+    }
+
+    @Mod.EventBusSubscriber(modid = CarboxyForgeMod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+    public class ModEventListener {
+        @SubscribeEvent
+        public static void registerCommands(RegisterCommandsEvent event){
+            HelloCommand.register(event.getDispatcher());
         }
     }
 }
