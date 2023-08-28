@@ -58,6 +58,9 @@ public class CarboxyForgeMod
         if (event.getTab() == CreativeModeTabs.OP_BLOCKS) {
             event.accept(ModBlocks.RUNE_BLOCK);
         }
+        if (event.getTab() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(ModItems.DICE);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
