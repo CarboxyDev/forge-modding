@@ -3,6 +3,7 @@ package me.carboxy.forgemod;
 import com.mojang.logging.LogUtils;
 
 import me.carboxy.forgemod.block.ModBlocks;
+import me.carboxy.forgemod.command.GibberishCommand;
 import me.carboxy.forgemod.command.HelloCommand;
 import me.carboxy.forgemod.item.ModItems;
 import net.minecraft.client.Minecraft;
@@ -24,9 +25,7 @@ import org.slf4j.Logger;
 @Mod(CarboxyForgeMod.MODID)
 public class CarboxyForgeMod
 {
-    // Define mod id in a common place for everything to reference
     public static final String MODID = "carboxyforgemod";
-    // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public CarboxyForgeMod()
@@ -95,6 +94,7 @@ public class CarboxyForgeMod
         @SubscribeEvent
         public static void registerCommands(RegisterCommandsEvent event){
             HelloCommand.register(event.getDispatcher());
+            GibberishCommand.register(event.getDispatcher());
         }
     }
 }
