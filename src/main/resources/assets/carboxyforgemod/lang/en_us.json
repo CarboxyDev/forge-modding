@@ -3,6 +3,5 @@
   "block.carboxyforgemod.rune_ore": "Rune Ore",
   "block.carboxyforgemod.rune_block": "Rune Block",
   "item.carboxyforgemod.dice": "Dice",
-
-  "item.carboxyforgemod.dice.tooltip": "Right click to roll the dice!"
+  "item.carboxyforgemod.runic_sword": "Runic Sword"
 }

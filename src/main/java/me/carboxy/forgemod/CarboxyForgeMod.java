@@ -62,6 +62,9 @@ public class CarboxyForgeMod
         if (event.getTab() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(ModItems.DICE);
         }
+        if (event.getTab() == CreativeModeTabs.COMBAT) {
+            event.accept(ModItems.RUNIC_SWORD);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
