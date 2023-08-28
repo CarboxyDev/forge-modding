@@ -1,12 +1,12 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": ["###", "###", "###"],
-    "key": {
-        "#": {
-            "item": "carboxyforgemod:rune_shard"
-        }
-    },
-    "result": {
-        "item": "carboxyforgemod:rune_block"
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["###", "###", "###"],
+  "key": {
+    "#": {
+      "item": "carboxyforgemod:rune_shard"
     }
+  },
+  "result": {
+    "item": "carboxyforgemod:rune_block"
+  }
 }
