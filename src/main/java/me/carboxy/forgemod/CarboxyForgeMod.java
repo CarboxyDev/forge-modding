@@ -3,13 +3,12 @@ package me.carboxy.forgemod;
 import com.mojang.logging.LogUtils;
 
 import me.carboxy.forgemod.block.ModBlocks;
+import me.carboxy.forgemod.command.ExperimentCommand;
 import me.carboxy.forgemod.command.GibberishCommand;
 import me.carboxy.forgemod.command.HelloCommand;
 import me.carboxy.forgemod.item.ModItems;
 import me.carboxy.forgemod.sound.ModSounds;
 import net.minecraft.client.Minecraft;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -59,6 +58,7 @@ public class CarboxyForgeMod
         }   
         if (event.getTab() == CreativeModeTabs.NATURAL_BLOCKS) {
             event.accept(ModBlocks.RUNE_ORE);
+            event.accept(ModBlocks.SHRINE_BLOCK);
         }
         if (event.getTab() == CreativeModeTabs.OP_BLOCKS) {
             event.accept(ModBlocks.RUNE_BLOCK);
@@ -99,6 +99,7 @@ public class CarboxyForgeMod
         public static void registerCommands(RegisterCommandsEvent event){
             HelloCommand.register(event.getDispatcher());
             GibberishCommand.register(event.getDispatcher());
+            ExperimentCommand.register(event.getDispatcher());
         }
 
     }
