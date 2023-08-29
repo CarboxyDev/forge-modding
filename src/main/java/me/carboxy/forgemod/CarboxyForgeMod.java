@@ -6,7 +6,10 @@ import me.carboxy.forgemod.block.ModBlocks;
 import me.carboxy.forgemod.command.GibberishCommand;
 import me.carboxy.forgemod.command.HelloCommand;
 import me.carboxy.forgemod.item.ModItems;
+import me.carboxy.forgemod.sound.ModSounds;
 import net.minecraft.client.Minecraft;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -33,6 +36,7 @@ public class CarboxyForgeMod
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModItems.ITEMS.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);
+        ModSounds.register(modEventBus);
         modEventBus.addListener(this::commonSetup);
         
         
@@ -96,5 +100,6 @@ public class CarboxyForgeMod
             HelloCommand.register(event.getDispatcher());
             GibberishCommand.register(event.getDispatcher());
         }
+
     }
 }
