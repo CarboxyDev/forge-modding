@@ -4,14 +4,30 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
 import me.carboxy.forgemod.CarboxyForgeMod;
-import net.minecraft.client.gui.screens.worldselection.SelectWorldScreen;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Entity;
 
-@Mixin(SelectWorldScreen.class)
+/**
+ * Some helpful notes
+ * 
+ * Z -> Boolean
+ * L -> For specifing path for a Class (has to end with ;)
+ * methodName(x) -> x must contain ALL the parameters of the method
+ * Write the return datatype of method at the end after the )
+ */
+
+
+@Mixin(LocalPlayer.class)
 public abstract class MixinTest {
-    @Inject(method = "init", at = @At("HEAD"), cancellable = true)
-    public void onSelectWorldScreenInit(CallbackInfo ci) {
-        CarboxyForgeMod.LOGGER.info("MixinTest init");
+    @Inject(method = "startRiding(Lnet/minecraft/world/entity/Entity;Z)Z", at = @At("HEAD"), cancellable = true)
+    protected void onLocalPlayerRiding(Entity riddenEntity, boolean b, CallbackInfoReturnable<Boolean> cir) {
+        CarboxyForgeMod.LOGGER.info("[MixinTest] onLocalPlayerRiding");
+        LocalPlayer player = (LocalPlayer) (Object) this;
+        player.experienceLevel += 1;
+        CarboxyForgeMod.LOGGER.info("[MixinTest] riddenEntity -> " + riddenEntity.getStringUUID() );
     }
-
 }
