@@ -6,9 +6,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import me.carboxy.forgemod.CarboxyForgeMod;
 import org.spongepowered.asm.mixin.injection.At;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -28,22 +27,23 @@ public abstract class ArrowMixin {
         AbstractArrow arrow = (AbstractArrow) (Object) this;
         Level level = arrow.getOwner().getLevel();
         BlockPos hitPos = blockHitResult.getBlockPos();
-        CarboxyForgeMod.LOGGER.info("[ArrowMixin] hitPos -> " + hitPos.getX() + ", " + hitPos.getY() + ", " + hitPos.getZ());
 
         BlockState hitBlock = level.getBlockState(hitPos).getBlock().defaultBlockState();
         BlockState magmaBlockState = Blocks.MAGMA_BLOCK.defaultBlockState();
         BlockState lavaBlockState = Blocks.LAVA.defaultBlockState();
-        
+
+
         if (hitBlock == magmaBlockState) {
             level.setBlock(hitPos, lavaBlockState, 0, 0);
-            return;
         }
-        if (hitBlock == lavaBlockState) {
-            return;
+        else if (hitBlock == lavaBlockState) {
         }
-        
-        level.setBlock(hitPos, magmaBlockState, 0);
-        
+        else {
+            level.setBlock(hitPos, magmaBlockState, 0);
+        }
+
+        level.addParticle(ParticleTypes.EXPLOSION, hitPos.getX(), hitPos.getY(), hitPos.getZ(), 0.0D, 0.0D, 0.0D);
     }
+
 
 }
