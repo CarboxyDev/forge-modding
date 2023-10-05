@@ -2,7 +2,13 @@
   "required": true,
   "package": "me.carboxy.forgemod.mixin",
   "compatibilityLevel": "JAVA_16",
-  "client": ["MixinTest", "ArrowMixin", "MiningMixin", "PlayerMixin"],
+  "client": [
+    "MixinTest",
+    "ArrowMixin",
+    "MiningMixin",
+    "PlayerMixin",
+    "MenuMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   },

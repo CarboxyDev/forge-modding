@@ -17,8 +17,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
+
 
 @Mixin(Player.class)
 public abstract class PlayerMixin {
@@ -29,7 +28,6 @@ public abstract class PlayerMixin {
         }
 
         Map<Enchantment, Integer> itemEnchants = stack.getAllEnchantments();
-        CarboxyForgeMod.LOGGER.info("[PlayerMixin] onDrop");
         
         boolean hasEfficiencyEnchant = false;
         for (Map.Entry<Enchantment, Integer> entry : itemEnchants.entrySet()) {
@@ -45,10 +43,8 @@ public abstract class PlayerMixin {
             return;
         }
         /* Player has an item with efficiency enchantment */
-        CarboxyForgeMod.LOGGER.info("[PlayerMixin] Dropped item has Efficiency on it");
+        CarboxyForgeMod.LOGGER.info("[PlayerMixin] onDrop: Efficiency on dropped item");
         Player player = (Player) (Object) this;
-
-        player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 20 * 5, 2));
         
     
     }
