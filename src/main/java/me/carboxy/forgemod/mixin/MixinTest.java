@@ -1,5 +1,9 @@
 package me.carboxy.forgemod.mixin;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.At;
@@ -7,6 +11,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import me.carboxy.forgemod.CarboxyForgeMod;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtIo;
 
 /**
  * Some helpful notes
@@ -25,6 +31,19 @@ public abstract class MixinTest {
         CarboxyForgeMod.LOGGER.info("[MixinTest] onLocalPlayerRiding");
         LocalPlayer player = (LocalPlayer) (Object) this;
         player.experienceLevel += 1;
-        CarboxyForgeMod.LOGGER.info("[MixinTest] riddenEntity -> " + riddenEntity.getStringUUID() );
+
+        String basePath = System.getProperty("user.dir");
+        String filePath = basePath + "/saves/Dev 2/level.dat";
+
+        File levelDataFile = new File(filePath);
+        try {
+            FileInputStream fis = new FileInputStream(levelDataFile);
+            CompoundTag levelData = NbtIo.readCompressed(fis);
+            CarboxyForgeMod.LOGGER.info("[MixinTest] levelData -> " + levelData.toString());
+            fis.close();
+        } catch (IOException err) {
+            err.printStackTrace();
+        }
+        
     }
 }
